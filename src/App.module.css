@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  display: grid;
+}
+
+/* 352 - 24,5
+   736 - component width
+*/
