@@ -1,15 +1,32 @@
 import { Trash } from 'phosphor-react'
+import { useState } from 'react'
 import styles from './Task.module.css'
 
-export function Task() {
+interface TaskProps {
+  isCompleted: boolean,
+  content: string
+}
+
+export function Task({ isCompleted, content }: TaskProps) {
+
+  const checked = "src/assets/check.svg"
+  const unchecked = "src/assets/uncheck.svg"
+
+  const [ isChecked, setIsChecked ] = useState(isCompleted);
+
+  function handleCheckClick() {
+    setIsChecked(!isChecked);
+    console.log(isChecked)
+  }
+
+
   return (
     <div className={styles.task}>
       <div>
-        <img src="src/assets/check.svg" alt="" />
+        <img src={ isChecked ? checked : unchecked } alt="" onClick={handleCheckClick}/>
       </div>
       <p>
-        Make an appointment with the dentist for a checkup and cleaning, and schedule it for next week.
-        Make an appointment with the dentist for a checkup and cleaning, and schedule it for next week.
+        {content}
       </p>
       <button>
         <Trash size={20}/>
