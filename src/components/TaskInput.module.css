@@ -19,16 +19,21 @@
 .taskInputContainer button {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-radius: 8px;
   padding: 1rem;
   color: var(--gray-100);
   background: var(--blue-dark);
   border: none;
-  transition: 0.1s;
+  transition: backgroud-color 0.1s;
   cursor: pointer;
 }
 
 .taskInputContainer button:hover {
   background: var(--blue);
   color: var(--gray-100);
+}
+
+.taskInputContainer strong {
+  margin-right: 0.5rem;
 }
