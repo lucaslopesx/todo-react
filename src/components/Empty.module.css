@@ -1,0 +1,16 @@
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem 1.5rem;
+  border-top: 1px solid var(--gray-400);
+  margin-top: 1.5rem;
+  color: var(--gray-300);
+  font-size: 1rem;
+}
+
+.emptyContainer p:first-of-type {
+  font-weight: bold;
+  margin-top: 1rem;
+}

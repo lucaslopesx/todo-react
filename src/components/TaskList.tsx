@@ -1,6 +1,7 @@
 import { Task } from './Task'
 import styles from './TaskList.module.css'
 import { v4 as uuidv4 } from 'uuid'
+import { Empty } from './Empty'
 
 const Tasks = [
   {
@@ -27,13 +28,14 @@ export function TaskList() {
         <p>Tarefas criadas <strong>5</strong></p>
         <p>Concluídas <strong>2 de 5</strong></p>
       </header>
-      {Tasks.map(task => {
+      <Empty/>
+      {/* {Tasks.map(task => {
         return <Task
           key={task.id}
           isCompleted={task.isCompleted}
           content={task.content}
         />
-      })}
+      })} */}
     </div>
   )
 }
