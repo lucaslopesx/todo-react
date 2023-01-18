@@ -30,16 +30,22 @@ export function TaskList({ tasks, onCheck, onDelete }: TaskListProps) {
         <p>Concluídas <strong>{tasksCompletedCount} de {tasks.length}</strong></p>
       </header>
       {/* <Empty/> */}
-      {tasks.map(task => {
-        return <Task
-          key={task.id}
-          id={task.id}
-          isCompleted={task.isCompleted}
-          content={task.content}
-          onCheck={handleTaskCheck}
-          onDelete={handleTaskDelete}
-        />
-      })}
+      {tasks.length === 0 ? 
+        ( 
+          <Empty/> 
+        ) : (
+          tasks.map(task => {
+            return <Task
+              key={task.id}
+              id={task.id}
+              isCompleted={task.isCompleted}
+              content={task.content}
+              onCheck={handleTaskCheck}
+              onDelete={handleTaskDelete}
+            />
+          })
+        )
+      }
     </div>
   )
 }
