@@ -29,11 +29,17 @@
   cursor: pointer;
 }
 
-.taskInputContainer button:hover {
+.taskInputContainer button:not(:disabled):hover {
   background: var(--blue);
   color: var(--gray-100);
+}
+
+.taskInputContainer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
 }
 
 .taskInputContainer strong {
   margin-right: 0.5rem;
 }
+

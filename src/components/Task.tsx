@@ -3,11 +3,20 @@ import { useState } from 'react'
 import styles from './Task.module.css'
 
 interface TaskProps {
+  id: string
   isCompleted: boolean,
+  content: string,
+  onCheck: (id: string) => void,
+  onDelete: (id: string) => void
+}
+
+export interface Task {
+  id: string
+  isCompleted: boolean
   content: string
 }
 
-export function Task({ isCompleted, content }: TaskProps) {
+export function Task({ id, isCompleted, content, onCheck, onDelete }: TaskProps) {
 
   const checked = "src/assets/check.svg"
   const unchecked = "src/assets/uncheck.svg"
@@ -15,8 +24,12 @@ export function Task({ isCompleted, content }: TaskProps) {
   const [ isChecked, setIsChecked ] = useState(isCompleted);
 
   function handleCheckClick() {
+    onCheck(id)
     setIsChecked(!isChecked);
-    console.log(isChecked)
+  }
+
+  function deleteTask() {
+    onDelete(id)
   }
 
 
@@ -28,7 +41,7 @@ export function Task({ isCompleted, content }: TaskProps) {
       <p>
         {content}
       </p>
-      <button>
+      <button onClick={deleteTask}>
         <Trash size={20}/>
       </button>
     </div>
