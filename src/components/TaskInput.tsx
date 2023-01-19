@@ -6,10 +6,9 @@ import { v4 as uuidv4 } from 'uuid'
 
 interface TaskInputProps {
   setTasks: Dispatch<SetStateAction<Task[]>>
-  tasks: Task[]
 }
 
-export function TaskInput({ setTasks, tasks }: TaskInputProps) {
+export function TaskInput({ setTasks }: TaskInputProps) {
 
   const [ newTask, setNewTask ] = useState<string>('')
 
@@ -17,11 +16,19 @@ export function TaskInput({ setTasks, tasks }: TaskInputProps) {
 
   function handleCreateNewTask(event: FormEvent){
     event.preventDefault();
-    setTasks([...tasks, { 
-      content: newTask || '', 
-      id: uuidv4(), 
-      isCompleted: false 
-    }])
+    setTasks((state) => {
+      const tasksUpdated = [...state, { 
+        content: newTask || '', 
+        id: uuidv4(), 
+        isCompleted: false 
+      }]
+
+      localStorage.setItem('tasks', JSON.stringify(tasksUpdated))  
+      return tasksUpdated
+    })
+
+
+
     setNewTask('')
   }
 

@@ -6,7 +6,12 @@ import styles from './Todo.module.css'
 
 export function Todo() {
 
-  const [ tasks, setTasks ] = useState<Task[]>([])
+  const currentTasks = localStorage.getItem('tasks') || '[]'
+
+  const [ tasks, setTasks ] = useState<Task[]>(
+    JSON.parse(currentTasks) || []
+  )
+
 
 
   function handleTaskCheck(id: string) {
@@ -16,19 +21,20 @@ export function Todo() {
       }
       return task
     }) 
-
+    localStorage.setItem('tasks', JSON.stringify(tasksUpdated))  
     setTasks(tasksUpdated)
   }
 
   function handleTaskDelete(id: string) {
     const tasksUpdated = tasks.filter(task => task.id !== id)
     setTasks(tasksUpdated)
+    localStorage.setItem('tasks', JSON.stringify(tasksUpdated))  
   }
 
 
   return (
     <article>
-      <TaskInput setTasks={setTasks} tasks={tasks}/>
+      <TaskInput setTasks={setTasks}/>
       <TaskList tasks={tasks} onCheck={handleTaskCheck} onDelete={handleTaskDelete}></TaskList>
     </article>
   )
