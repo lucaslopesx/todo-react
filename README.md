@@ -7,10 +7,12 @@ Este projeto é uma lista de tarefas construída utilizando o framework React. E
 ## Screenshots
 
 #Desktop
-![App Screenshot Desktop]()
+![App Screenshot Desktop](https://user-images.githubusercontent.com/68665689/213324409-73a5b6d9-d93e-4b98-abd5-b340bb84feb4.png)
+
 
 #Mobile
-![App Screenshot Mobile]()
+![App Screenshot Mobile](https://user-images.githubusercontent.com/68665689/213324428-5a03cea8-58db-4e4d-b3d8-bcf6e9ff8014.png)
+
 
 
 ## Referência
