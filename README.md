@@ -4,6 +4,32 @@
 Este projeto é uma lista de tarefas construída utilizando o framework React. Ele tem como objetivo aprofundar os conceitos básicos do React, incluindo a utilização de componentes, estado e propriedades. O projeto inclui uma interface de usuário simples para adicionar e excluir tarefas, bem como marcá-las como concluídas. O projeto é desenvolvido para ser simples, mas ainda assim fornecer uma boa base para aqueles que estão aprendendo o React.
 
 
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/lucaslopesx/todo-react.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd todo-react
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
 ## Screenshots
 
 ### Desktop
