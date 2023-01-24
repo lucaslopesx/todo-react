@@ -17,11 +17,11 @@ export function TaskInput({ setTasks }: TaskInputProps) {
   function handleCreateNewTask(event: FormEvent){
     event.preventDefault();
     setTasks((state) => {
-      const tasksUpdated = [...state, { 
+      const tasksUpdated = [ { 
         content: newTask || '', 
         id: uuidv4(), 
         isCompleted: false 
-      }]
+      }, ...state]
 
       localStorage.setItem('tasks', JSON.stringify(tasksUpdated))  
       return tasksUpdated

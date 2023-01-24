@@ -21,9 +21,20 @@ export function Todo() {
       }
       return task
     }) 
-    localStorage.setItem('tasks', JSON.stringify(tasksUpdated))  
-    setTasks(tasksUpdated)
+    const tasksReordered = reorderTasksWhenChecked(id, tasksUpdated)
+    localStorage.setItem('tasks', JSON.stringify(tasksReordered))  
+    setTasks(tasksReordered)
   }
+
+  function reorderTasksWhenChecked(id: string, tasks: Task[]) {
+    const taskIndex = tasks.findIndex(task => task.id === id)
+    const task = tasks.splice(taskIndex, 1)
+    const taskIndexWhenIsCompleted = () => (tasks.findIndex(x => x.isCompleted == true))
+    const latestCheckedTaskIndex = taskIndexWhenIsCompleted() == -1 ? tasks.length : taskIndexWhenIsCompleted()
+    tasks.splice(latestCheckedTaskIndex, 0, task[0])
+    return tasks
+  }
+
 
   function handleTaskDelete(id: string) {
     const tasksUpdated = tasks.filter(task => task.id !== id)
