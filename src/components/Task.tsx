@@ -18,8 +18,8 @@ export interface Task {
 
 export function Task({ id, isCompleted, content, onCheck, onDelete }: TaskProps) {
 
-  const checked = "src/assets/check.svg"
-  const unchecked = "src/assets/uncheck.svg"
+  const checked = "/assets/check.svg"
+  const unchecked = "/assets/uncheck.svg"
 
   const [ isChecked, setIsChecked ] = useState(isCompleted);
 
